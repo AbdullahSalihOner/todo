@@ -1,1 +1,15 @@
-<input matInput type="text" [(ngModel)]="inputText">
+<div style="display: flex; justify-content: center; align-items: center; width:100%; height: 69vh; flex-direction: column;">
+
+  <div>
+    <input matInput type="text" [(ngModel)]="inputText">
+    <button mat-raised-button color="accent" (click)="addValue()">Add ToDo</button>
+
+  </div>
+ 
+
+<div *ngFor="let todo of todos">
+  <mat-checkbox >{{todo}}</mat-checkbox>
+</div>
+
+</div>
+

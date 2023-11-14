@@ -8,4 +8,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'todo';
   inputText: string = '';
+
+  todos: string[] = [
+    'Todo 1',
+    'Todo 2',
+    'Todo 3',
+  ];
+
+  addValue() {  
+    this.todos.push(this.inputText);
+    this.inputText = '';
+    
+
+  }
 }
+
+
