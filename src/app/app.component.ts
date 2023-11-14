@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'todo';
   inputText: string = '';
 
+
   todos: string[] = [
     'Todo 1',
     'Todo 2',
@@ -18,8 +19,11 @@ export class AppComponent {
   addValue() {  
     this.todos.push(this.inputText);
     this.inputText = '';
-    
 
+  }
+
+ deleteItem(index: number) {  
+    this.todos.splice(index, 1);
   }
 }
 

@@ -1,15 +1,29 @@
-<div style="display: flex; justify-content: center; align-items: center; width:100%; height: 69vh; flex-direction: column;">
+<div>
 
-  <div>
-    <input matInput type="text" [(ngModel)]="inputText">
-    <button mat-raised-button color="accent" (click)="addValue()">Add ToDo</button>
 
+  <mat-toolbar color="primary">
+    <span>ToDo List</span>
+  </mat-toolbar>
+
+
+  <div class="container">
+    <div>
+      <input matInput type="text" [(ngModel)]="inputText" />
+      <button mat-raised-button id= "addButton" color="accent" (click)="addValue()">
+        Add ToDo
+      </button>
+    </div>
+  
+    <div id="checkbox" *ngFor="let todo of todos; index as index">
+      <div class="item">
+        <mat-checkbox > {{ todo }}</mat-checkbox>
+       
+
+        <mat-icon (click)="deleteItem(index)" aria-hidden="false" aria-label="Example home icon" fontIcon="delete">Delete</mat-icon>
+
+      </div>
+    </div>
   </div>
- 
-
-<div *ngFor="let todo of todos">
-  <mat-checkbox >{{todo}}</mat-checkbox>
-</div>
 
 </div>
 
