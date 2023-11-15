@@ -1,29 +1,78 @@
 <div>
-
-
   <mat-toolbar color="primary">
     <span>ToDo List</span>
   </mat-toolbar>
 
-
   <div class="container">
     <div>
       <input matInput type="text" [(ngModel)]="inputText" />
-      <button mat-raised-button id= "addButton" color="accent" (click)="addValue()">
+      <button
+        mat-raised-button
+        id="addButton"
+        color="accent"
+        (click)="addValue()"
+      >
         Add ToDo
       </button>
     </div>
-  
+
     <div id="checkbox" *ngFor="let todo of todos; index as index">
       <div class="item">
-        <mat-checkbox > {{ todo }}</mat-checkbox>
-       
+        <mat-checkbox> 
+          <div *ngIf="isEditMode">
+            {{ todo }}
+          </div>
+         </mat-checkbox>
 
-        <mat-icon (click)="deleteItem(index)" aria-hidden="false" aria-label="Example home icon" fontIcon="delete">Delete</mat-icon>
+         <div>
+          <input *ngIf="isEditMode" type="text" [(ngModel)]="inputText" />
+          
+         </div>
 
+        <mat-icon
+          (click)="deleteItem(index)"
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="delete"
+          >Delete</mat-icon
+        >
+        <mat-icon
+        (click)="updateItem(index)"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="edit"
+        >Edit</mat-icon
+      >
       </div>
     </div>
+
+    <div id="deletedTodos" *ngIf="deletedTodos.length > 0">
+      <button
+        mat-raised-button
+        id="addButton"
+        color="accent"
+        (click)="clearAll()"
+      >
+        Clear All
+      </button>
+
+      <div>Silinenler</div>
+      <div *ngFor="let deletedTodo of deletedTodos; index as index">
+        <div class="item">
+          <mat-checkbox> {{ deletedTodo }}</mat-checkbox>
+          <mat-icon
+            (click)="deleteItem(index)"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="delete"
+            >Delete</mat-icon
+          >
+          
+        </div>
+      </div>
+
+    </div>
+
+
   </div>
-
 </div>
-

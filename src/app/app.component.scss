@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: start;
   flex-direction: column;
   height: 70vh;
@@ -10,14 +10,13 @@
   padding: 10px;
 }
 
-
-
-#checkbox .slider {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+.deletedTodos {
+  text-decoration: line-through;
+  color: rgb(152, 23, 23);
+    align-items: left;
+    display: flex;
 }
+
 
 .list{
     display: flex;

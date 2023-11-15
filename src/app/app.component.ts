@@ -8,13 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'todo';
   inputText: string = '';
+  isEditMode = false;
 
 
-  todos: string[] = [
-    'Todo 1',
-    'Todo 2',
-    'Todo 3',
-  ];
+  todos: string[] = [];
+    deletedTodos: string[] = [];
+    
+ 
 
   addValue() {  
     this.todos.push(this.inputText);
@@ -23,7 +23,18 @@ export class AppComponent {
   }
 
  deleteItem(index: number) {  
+    this.deletedTodos.push(this.todos[index]);
     this.todos.splice(index, 1);
+  }
+
+  clearAll() {
+    this.deletedTodos = [];
+  }
+
+  updateItem(index: number) {
+    if(!this.isEditMode) this.isEditMode = true;
+    else  this.isEditMode = false;
+    
   }
 }
 
